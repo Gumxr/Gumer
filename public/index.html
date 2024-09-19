@@ -1,90 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Gumer - Website</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ali Gumer - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+        /* Resetting default styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            margin: 10px;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
             color: #333;
-            font-weight: bold;
+            scroll-behavior: smooth;
         }
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #000000;
-        }
-        footer {
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #f7d794);
+            color: #fff;
+            padding: 2rem 0;
             text-align: center;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #333;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #ff6b6b;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Projects Section */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .contact ul li {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .contact ul li a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .contact ul li a:hover {
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer p {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>Ali Gumer</h1>
-        <p>Welcome to my personal website!</p>
+        <p>Welcome to my portfolio</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
-
-    <nav>
-        <a href="../contact.html">About</a>
-        <a href="">Projects</a>
-        <a href="">Contact</a>
-    </nav>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi! I'm [Your Name], a passionate individual who loves coding, designing, and creating impactful projects. I have experience in [briefly mention your skills or background]. On this website, you can learn more about my work and how to contact me.</p>
+        <p>Hello! I'm Ali Gumer, a passionate student who loves coding, creating, and exploring the world of technology. On this site, you’ll find a showcase of my work, the skills I've developed, and a way to get in touch!</p>
     </section>
 
-    <section id="projects">
+    <<section id="projects">
         <h2>Projects</h2>
-        <p>Here are a few of my projects:</p>
-        <ul>
-            <li><strong>Project 1</strong> - A brief description of your first project.</li>
-            <li><strong>Project 2</strong> - A brief description of your second project.</li>
-            <li><strong>Project 3</strong> - A brief description of your third project.</li>
-        </ul>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project 1: NutriTracker</h3>
+                <p>NutriTracker is a web app built by me and my study group to track food intake and provide nutritional insights. It was developed using HTML, CSS, JavaScript, and t-SQL for database management. The app is hosted on Azure, ensuring secure and scalable deployment. Users can monitor their daily nutrition and track their progress over time.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 2: Portfolio Website</h3>
+                <p>A personal portfolio website that highlights my projects, skills, and experience.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 3: Coding Challenges</h3>
+                <p>Collection of coding challenges solved using JavaScript.</p>
+            </div>
+        </div>
     </section>
+    
 
-    <section id="contact">
+    <section id="contact" class="contact">
         <h2>Contact</h2>
-        <p>Feel free to get in touch with me at:</p>
         <ul>
-            <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-            <li>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-            <li>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></li>
+            <li>Email: <a href="mailto:gumerali@icloud.com">gumerali@icloud.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/ali-gumer-8a9137268/" target="_blank">linkedin.com/in/ali-gumer</a></li>
         </ul>
     </section>
 
@@ -93,4 +212,5 @@
     </footer>
 
 </body>
+
 </html>
