@@ -180,7 +180,7 @@
         <p>Hello! I'm Ali Gumer, a passionate student who loves coding, creating, and exploring the world of technology. On this site, you’ll find a showcase of my work, the skills I've developed, and a way to get in touch!</p>
     </section>
 
-    <<section id="projects">
+    <section id="projects">
         <h2>Projects</h2>
         <div class="projects">
             <div class="project-card">
@@ -197,7 +197,11 @@
             </div>
         </div>
     </section>
-    
+
+    <section id="weather">
+        <h2>Weather in Copenhagen</h2>
+        <p id="weather-info"></p>
+    </section>
 
     <section id="contact" class="contact">
         <h2>Contact</h2>
@@ -210,6 +214,27 @@
     <footer>
         <p>&copy; 2024 Ali Gumer. All rights reserved.</p>
     </footer>
+
+    <script>
+        async function getWeather() {
+            try {
+                const response = await fetch('/api/weather');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                const weatherInfo = `Temperature: ${data.current_weather.temperature} °C, Wind Speed: ${data.current_weather.windspeed} km/h`;
+                document.getElementById('weather-info').innerText = weatherInfo;
+            } catch (error) {
+                document.getElementById('weather-info').innerText = 'Could not fetch weather data. Please try again later.';
+            }
+        }
+    
+        // Fetch weather information on page load
+        document.addEventListener('DOMContentLoaded', getWeather);
+    </script>
+    
+    
 
 </body>
 
