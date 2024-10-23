@@ -77,6 +77,23 @@
             margin-right: auto;
         }
 
+        button{
+            align-items: center;
+            background-color: #ff6b6b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            font-size: 1rem;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+            
+        }
+
         /* Projects Section */
         .projects {
             display: grid;
@@ -203,6 +220,12 @@
         <p id="weather-info"></p>
     </section>
 
+    <section id="rtt">
+        <h2>Round Trip Time (RTT) Measurement</h2>
+        <button onclick="measureRTT()">Reload Page and Measure RTT</button>
+        <p id="rtt-value">Click the button to measure RTT.</p>
+    </section>
+
     <section id="contact" class="contact">
         <h2>Contact</h2>
         <ul>
@@ -229,9 +252,45 @@
                 document.getElementById('weather-info').innerText = 'Could not fetch weather data. Please try again later.';
             }
         }
-    
+
         // Fetch weather information on page load
         document.addEventListener('DOMContentLoaded', getWeather);
+
+        document.addEventListener('DOMContentLoaded', () => {
+    getWeather();
+    measureInitialRTT();
+});
+
+    async function measureInitialRTT() {
+        try {
+            const startTime = Date.now();
+            await fetch('/api/ping');
+            const endTime = Date.now();
+
+            const rtt = endTime - startTime;
+            document.getElementById('rtt-value').innerText = `Initial Round Trip Time (RTT): ${rtt} ms`;
+        } catch (error) {
+            document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
+        }
+    }
+
+    function reloadAndPing() {
+        location.reload();
+    
+}
+    async function measureRTT() {
+        try {
+            const startTime = Date.now();
+            await fetch('/api/ping');
+            const endTime = Date.now();
+
+            const rtt = endTime - startTime;
+            document.getElementById('rtt-value').innerText = `Round Trip Time (RTT): ${rtt} ms`;
+        } catch (error) {
+            document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
+        }
+    }
+
     </script>
     
     
