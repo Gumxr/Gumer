@@ -30,12 +30,15 @@ app.get('/api/weather', async (req, res) => {
 
 app.get('/api/ping', (req, res) => {
     const serverReceivedTime = Date.now();
-    console.log(`Ping received at: ${serverReceivedTime} ms`);
+    console.log(`Ping received at: ${new Date(serverReceivedTime).toLocaleString()}`);
 
     res.sendStatus(200);
 
     const serverResponseTime = Date.now();
-    console.log(`Response sent at: ${serverResponseTime} ms`);
+    console.log(`Response sent at: ${new Date(serverResponseTime).toLocaleString()}`);
+
+    const duration = serverResponseTime - serverReceivedTime;
+    console.log(`Time taken to respond: ${duration} ms`);
 });
 
 

@@ -261,35 +261,47 @@
     measureInitialRTT();
 });
 
-    async function measureInitialRTT() {
-        try {
-            const startTime = Date.now();
-            await fetch('/api/ping');
-            const endTime = Date.now();
+async function measureInitialRTT() {
+    try {
+        const startTime = Date.now();
+        console.log(`Ping request sent at: ${new Date(startTime).toLocaleString()}`);
 
-            const rtt = endTime - startTime;
-            document.getElementById('rtt-value').innerText = `Initial Round Trip Time (RTT): ${rtt} ms`;
-        } catch (error) {
-            document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
-        }
+        await fetch('/api/ping');
+
+        const endTime = Date.now();
+        console.log(`Ping response received at: ${new Date(endTime).toLocaleString()}`);
+
+        const rtt = endTime - startTime;
+        console.log(`Initial Round Trip Time (RTT): ${rtt} ms`);
+        document.getElementById('rtt-value').innerText = `Initial Round Trip Time (RTT): ${rtt} ms`;
+    } catch (error) {
+        console.log('Could not measure RTT. Please try again later.');
+        document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
     }
-
-    function reloadAndPing() {
-        location.reload();
-    
 }
-    async function measureRTT() {
-        try {
-            const startTime = Date.now();
-            await fetch('/api/ping');
-            const endTime = Date.now();
 
-            const rtt = endTime - startTime;
-            document.getElementById('rtt-value').innerText = `Round Trip Time (RTT): ${rtt} ms`;
-        } catch (error) {
-            document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
-        }
+function reloadAndPing() {
+    location.reload();
+}
+
+async function measureRTT() {
+    try {
+        const startTime = Date.now();
+        console.log(`Ping request sent at: ${new Date(startTime).toLocaleString()}`);
+
+        await fetch('/api/ping');
+
+        const endTime = Date.now();
+        console.log(`Ping response received at: ${new Date(endTime).toLocaleString()}`);
+
+        const rtt = endTime - startTime;
+        console.log(`Round Trip Time (RTT): ${rtt} ms`);
+        document.getElementById('rtt-value').innerText = `Round Trip Time (RTT): ${rtt} ms`;
+    } catch (error) {
+        console.log('Could not measure RTT. Please try again later.');
+        document.getElementById('rtt-value').innerText = 'Could not measure RTT. Please try again later.';
     }
+}
 
     </script>
     
